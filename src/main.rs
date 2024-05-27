@@ -20,10 +20,19 @@ fn main() -> Result<()> {
         read_all(stdin()).context("Cannot read StdIn")?
     };
 
+    let max_width = match app.line_width {
+        0 => None,
+        w => Some(w),
+    };
+    let fixed_indentation = match app.indentation {
+        m if m.is_empty() => None,
+        m => Some(m.into()),
+    };
     let config = Config {
-        max_width: app.line_width,
-        fixed_emphasis_marker: app.emphasis_marker.map(|s| &*s.leak()),
-        fixed_strong_marker: app.strong_marker.map(|s| &*s.leak()),
+        max_width,
+        fixed_emphasis_marker: set_none_or_leak(app.emphasis_marker),
+        fixed_strong_marker: set_none_or_leak(app.strong_marker),
+        fixed_indentation,
         ..Config::sichanghe_opinion()
     };
     let formatted = format_with_config(&input, config).context("Cannot format")?;
@@ -69,9 +78,9 @@ struct App {
         short = 'w',
         long,
         default_value = "80",
-        help = "Maximum line width limit. Preserve line lengths if set to none."
+        help = "Maximum line width limit. Preserve line lengths if set to 0."
     )]
-    line_width: Option<usize>,
+    line_width: usize,
 
     #[arg(short, long, help = "Name of input file; if omitted, read from StdIn.")]
     filename: Option<PathBuf>,
@@ -88,15 +97,30 @@ struct App {
         short,
         long,
         default_value = "*",
-        help = "Marker for emphasis spans, or preserve the input of set to none."
+        help = r#"Marker for emphasis spans, or preserve the input if set to ""."#
     )]
-    emphasis_marker: Option<String>,
+    emphasis_marker: String,
 
     #[arg(
         short,
         long,
         default_value = "**",
-        help = "Marker for strong spans, or preserve the input of set to none."
+        help = r#"Marker for strong spans, or preserve the input if set to ""."#
     )]
-    strong_marker: Option<String>,
+    strong_marker: String,
+
+    #[arg(
+        short,
+        long,
+        default_value = "    ",
+        help = r#"Fixed indentation string, or preserve the input if set to ""."#
+    )]
+    indentation: String,
+}
+
+fn set_none_or_leak(s: String) -> Option<&'static str> {
+    match s.is_empty() {
+        true => None,
+        false => Some(&*s.leak()),
+    }
 }
