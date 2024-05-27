@@ -1,5 +1,11 @@
+use std::fmt::Write;
+
 use markdown_fmt::*;
 use tracing::*;
+
+pub mod paragraph_formatter;
+
+pub use crate::paragraph_formatter::FmttParagraph;
 
 pub fn format(input: &str, line_width: Option<usize>) -> Result<String, std::fmt::Error> {
     let config = Config {
@@ -9,7 +15,7 @@ pub fn format(input: &str, line_width: Option<usize>) -> Result<String, std::fmt
     debug!(?config);
     FormatterBuilder::with_config(config)
         .build()
-        .format_with_paragraph_and_html_block_formatter::<Paragraph, PreservingHtmlBlock>(input)
+        .format_with_paragraph_and_html_block_formatter::<FmttParagraph, PreservingHtmlBlock>(input)
 }
 
 #[cfg(test)]

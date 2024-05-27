@@ -14,7 +14,7 @@ repository = "https://github.com/SichangHe/fmtm"
 [dependencies]
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
-fmtt = "0.5"
+fmtt = "0.6"
 markdown-fmt = { version = "0.1", path = "ytmimi--markdown-fmt" }
 tracing = { version = "0.1", default_features = false }
 tracing-subscriber = { version = "0.3", default_features = false, features = [

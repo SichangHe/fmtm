@@ -1,0 +1,191 @@
+---
+source: src/tests/format.rs
+expression: formatted_20
+---
+---
+title: Dummy Markdown Document
+author: ChatGPT
+date: 2024-05-27
+---
+
+# Heading Level 1
+
+Lorem ipsum dolor
+sit amet,
+consectetur
+adipiscing elit.
+**Vivamus** lacinia
+odio vitae
+vestibulum
+vestibulum.
+
+## Heading Level 2
+
+1. First item
+1. Second item
+1. Third item
+
+### Heading Level 3
+
+> "To be,
+> or not to be,
+> that
+> is the question."
+> - William
+> Shakespeare
+
+#### Heading Level 4
+
+- Bullet point
+    one
+- Bullet point
+    two
+- Bullet point
+    three
+
+```python
+def hello_world():
+    print("Hello, world!")
+
+hello_world()
+```
+
+##### Heading Level 5
+
+Integer nec odio.
+*Praesent libero*.
+Sed cursus ante
+dapibus diam.
+Sed nisi.
+
+###### Heading Level 6
+
+1. Ordered
+    - Nested
+        unordered
+    - Nested
+        unordered
+1. List item
+
+### Another Heading Level 3
+
+```
+$ echo "Hello, Markdown!"
+Hello, Markdown!
+```
+
+**Bold text**,
+*italic text*,
+and `inline code`.
+
+```yaml
+name: John Doe
+age: 29
+occupation: Software Developer
+```
+
+## Subheading Level 2
+
+Nulla quis sem at
+nibh elementum
+imperdiet.
+Duis sagittis
+ipsum.
+Praesent mauris.
+
+- Single bullet
+    point
+
+> Blockquote:
+>
+> Lorem ipsum dolor
+> sit amet,
+> consectetur
+> adipiscing elit.
+> Integer nec odio.
+
+```javascript
+const greet = () => {
+    console.log("Hello, world!");
+};
+
+greet();
+```
+
+- Another single
+    bullet point
+
+# Another Main Heading
+
+### Nested Heading Level 3
+
+**Here's a bold
+statement**:
+
+> Curabitur sodales
+> ligula in libero.
+> Sed dignissim
+> lacinia nunc.
+
+1. First ordered
+    item
+    - Nested
+        bullet
+        point
+    - Another
+        nested
+        bullet
+        point
+1. Second ordered
+    item
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+</body>
+</html>
+```
+
+#### Deeper Nested Heading Level 4
+
+*Here's some
+italicized text.*
+
+1. List item one
+1. List item two
+1. List item three
+
+> Final blockquote
+> to end:
+>
+> "Lorem ipsum
+> dolor sit amet,
+> consectetur
+> adipiscing elit."
+
+# Final Main Heading
+
+Lorem ipsum dolor
+sit amet,
+consectetur
+adipiscing elit.
+Integer nec odio.
+Praesent libero.
+Sed cursus ante
+dapibus diam.
+
+- Single bullet
+    item with
+    punctuation:
+    is this enough?
+
+## The End
+
+Thank you for
+reading!

@@ -4,6 +4,8 @@ use tracing_subscriber::EnvFilter;
 
 use super::*;
 
+mod format;
+
 fn init_tracing() {
     _ = tracing_subscriber::fmt()
         .with_env_filter(
