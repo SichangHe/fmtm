@@ -7,7 +7,7 @@ expression: formatted_20
 Lorem ipsum dolor
 sit amet,
 **consectetur**
-adipiscing _elit_.
+adipiscing *elit*.
 Integer nec odio.
 Praesent
 **libero**.
@@ -15,18 +15,18 @@ Praesent
 ## Subheading Level 2
 
 *Sed cursus* ante
-_dapibus_ diam.
+*dapibus* diam.
 Sed **nisi**.
 Nulla quis +sem+ at
 -nibh- elementum
 ~imperdiet~.
 **Duis** sagittis
-_ipsum_.
+*ipsum*.
 Praesent
 **mauris**.
 
 - **Bold** with asterisks: ***strong emphasis***
-- _Italic_ with underscores: __italic emphasis__
+- *Italic* with underscores: **italic emphasis**
 - **Combined** styles: ***bold and italic***
 
 ### Subheading Level 3
@@ -35,8 +35,8 @@ Praesent
 you can have:**
 
 1. **Ordered lists**
-    1. _Nested item 1_
-    1. _Nested item 2_
+    1. *Nested item 1*
+    1. *Nested item 2*
 1. **Unordered lists**
     - +List+ item
         with a plus
@@ -47,7 +47,7 @@ you can have:**
 
 > "Blockquote with
 > **bold** and
-> _italic_ text." -
+> *italic* text." -
 > Famous Quote
 
 ```javascript

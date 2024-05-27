@@ -3,6 +3,7 @@ use std::{fs::File, io::*, path::PathBuf};
 use anyhow::{Context, Result};
 use clap::Parser;
 use fmtm::*;
+use markdown_fmt::Config;
 use tracing_subscriber::EnvFilter;
 
 fn main() -> Result<()> {
@@ -19,7 +20,13 @@ fn main() -> Result<()> {
         read_all(stdin()).context("Cannot read StdIn")?
     };
 
-    let formatted = format(&input, app.line_width).context("Cannot format")?;
+    let config = Config {
+        max_width: app.line_width,
+        fixed_emphasis_marker: app.emphasis_marker.map(|s| &*s.leak()),
+        fixed_strong_marker: app.strong_marker.map(|s| &*s.leak()),
+        ..Config::sichanghe_opinion()
+    };
+    let formatted = format_with_config(&input, config).context("Cannot format")?;
 
     if let (true, Some(filename)) = (app.change_in_place, &app.filename) {
         File::create(filename)
@@ -76,4 +83,20 @@ struct App {
         help = "If input file is provided, write output to it."
     )]
     change_in_place: bool,
+
+    #[arg(
+        short,
+        long,
+        default_value = "*",
+        help = "Marker for emphasis spans, or preserve the input of set to none."
+    )]
+    emphasis_marker: Option<String>,
+
+    #[arg(
+        short,
+        long,
+        default_value = "**",
+        help = "Marker for strong spans, or preserve the input of set to none."
+    )]
+    strong_marker: Option<String>,
 }
