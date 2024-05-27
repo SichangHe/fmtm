@@ -5,8 +5,33 @@ members = [".", "ytmimi--markdown-fmt"]
 name = "fmtm"
 version = "0.0.0"
 edition = "2021"
+description = "A diff-friendly Markdown formatter that breaks lines on sensible punctuations and words to fit a line width."
+license = "MIT"
+repository = "https://github.com/SichangHe/fmtm"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+fmtt = "0.5"
 markdown-fmt = { version = "0.1", path = "ytmimi--markdown-fmt" }
+tracing = { version = "0.1", default_features = false }
+tracing-subscriber = { version = "0.3", default_features = false, features = [
+    "ansi",
+    "env-filter",
+    "fmt",
+    "smallvec",
+] }
+
+[dev-dependencies]
+insta = "1.39"
+
+[profile.release]
+opt-level = "s"
+lto = true
+
+# Compile snapshot testing libraries with optimizations.
+[profile.dev.package]
+insta = { opt-level = 3 }
+similar = { opt-level = 3 }
