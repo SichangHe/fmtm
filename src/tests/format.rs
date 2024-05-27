@@ -28,7 +28,6 @@ macro_rules! t {
     };
 }
 
-// TODO: Unify emphasis mark, etc.
 t!(gpt_inline, include_str!("gpt_inline.md"));
 
 t!(gpt1, include_str!("gpt1.md"));

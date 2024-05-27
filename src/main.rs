@@ -113,7 +113,8 @@ struct App {
         short,
         long,
         default_value = "    ",
-        help = r#"Fixed indentation string, or preserve the input if set to ""."#
+        help = r#"Fixed indentation string,
+or calculate to align the beginning of content text in each list if set to ""."#
     )]
     indentation: String,
 }
