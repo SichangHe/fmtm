@@ -1,6 +1,6 @@
 [package]
 name = "fmtm"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 description = "A diff-friendly Markdown formatter that breaks lines on sensible punctuations and words to fit a line width."
 license = "MIT"
