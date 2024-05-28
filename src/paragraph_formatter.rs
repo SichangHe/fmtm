@@ -1,3 +1,5 @@
+use std::iter::once;
+
 use fmtt::{format, Hanging};
 
 use super::*;
@@ -7,11 +9,19 @@ use super::*;
 pub struct FmttParagraph {
     line_width: Option<usize>,
     buffer: String,
+    hard_break_points: Vec<usize>,
 }
 
 impl Write for FmttParagraph {
     fn write_str(&mut self, s: &str) -> std::fmt::Result {
+        let is_hard_break = matches!(
+            s, r"\
+"
+        );
         self.buffer.push_str(s);
+        if is_hard_break {
+            self.hard_break_points.push(self.buffer.len());
+        }
         Ok(())
     }
 }
@@ -21,6 +31,7 @@ impl ParagraphFormatter for FmttParagraph {
         Self {
             line_width: max_width,
             buffer: String::with_capacity(capacity),
+            hard_break_points: Vec::new(),
         }
     }
 
@@ -29,11 +40,31 @@ impl ParagraphFormatter for FmttParagraph {
     }
 
     fn into_buffer(self) -> String {
-        match self.line_width {
+        let Self {
+            line_width,
+            buffer,
+            hard_break_points,
+        } = self;
+        let chunk_border_indices = hard_break_points.iter().copied();
+        match line_width {
             Some(line_width) => {
-                format(&self.buffer, line_width, Hanging::Hang, &Default::default()).join("")
+                let paragraph_starts = Default::default();
+                once(0)
+                    .chain(chunk_border_indices.clone())
+                    .zip(chunk_border_indices.chain(once(buffer.len())))
+                    .map(|(start, end)| {
+                        format(
+                            &buffer[start..end],
+                            line_width,
+                            Hanging::Hang,
+                            &paragraph_starts,
+                        )
+                        .join("")
+                    })
+                    .collect::<String>()
+                // format(&self.buffer, line_width, Hanging::Hang, &Default::default()).join("")
             }
-            None => self.buffer,
+            None => buffer,
         }
     }
 }

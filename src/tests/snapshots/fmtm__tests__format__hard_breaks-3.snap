@@ -1,0 +1,10 @@
+---
+source: src/tests/format.rs
+expression: formatted_inf
+---
+Markdown documents may contain hard breaks.\
+For example, the one above.
+
+\
+Best,\
+You Know Who

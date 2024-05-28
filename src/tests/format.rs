@@ -31,3 +31,15 @@ macro_rules! t {
 t!(gpt_inline, include_str!("gpt_inline.md"));
 
 t!(gpt1, include_str!("gpt1.md"));
+
+t!(
+    hard_breaks,
+    r"
+Markdown documents may contain hard breaks.\
+For example, the one above.
+
+\
+Best,\
+You Know Who
+"
+);

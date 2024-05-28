@@ -1,0 +1,10 @@
+---
+source: src/tests/format.rs
+expression: default_formatted
+---
+Markdown documents may contain hard breaks.\
+For example, the one above.
+
+\
+Best,\
+You Know Who
