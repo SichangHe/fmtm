@@ -1,6 +1,3 @@
-[workspace]
-members = [".", "ytmimi--markdown-fmt"]
-
 [package]
 name = "fmtm"
 version = "0.0.0"
@@ -15,7 +12,7 @@ repository = "https://github.com/SichangHe/fmtm"
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
 fmtt = "0.6"
-markdown-fmt = { package = "fmtm_ytmimi_markdown_fmt", version = "0.0.1", path = "ytmimi--markdown-fmt" }
+markdown-fmt = { package = "fmtm_ytmimi_markdown_fmt", version = "0.0.1", git = "https://github.com/SichangHe/fmtm_ytmimi_markdown_fmt.git" }
 tracing = { version = "0.1", default_features = false }
 tracing-subscriber = { version = "0.3", default_features = false, features = [
     "ansi",
