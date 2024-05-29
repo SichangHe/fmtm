@@ -4,7 +4,7 @@ use fmtt::{format, Hanging};
 
 use super::*;
 
-/// A [`ParagraphFormatter`] that uses the FMTT to format Markdown paragraphs.
+/// A [`ExternalFormatter`] that uses the FMTT to format Markdown paragraphs.
 /// If the line width is not specified, do not format.
 pub struct FmttParagraph {
     line_width: Option<usize>,
@@ -26,8 +26,8 @@ impl Write for FmttParagraph {
     }
 }
 
-impl ParagraphFormatter for FmttParagraph {
-    fn new(max_width: Option<usize>, capacity: usize) -> Self {
+impl ExternalFormatter for FmttParagraph {
+    fn new(_buffer_type: BufferType, max_width: Option<usize>, capacity: usize) -> Self {
         Self {
             line_width: max_width,
             buffer: String::with_capacity(capacity),
@@ -37,6 +37,10 @@ impl ParagraphFormatter for FmttParagraph {
 
     fn is_empty(&self) -> bool {
         self.buffer.is_empty()
+    }
+
+    fn context(&self) -> FormattingContext {
+        FormattingContext::Paragraph
     }
 
     fn into_buffer(self) -> String {

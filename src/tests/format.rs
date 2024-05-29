@@ -43,3 +43,8 @@ Best,\
 You Know Who
 "
 );
+
+t!(
+    pulldown_cmark_specs_math,
+    include_str!("pulldown_cmark_specs_math.md")
+);
