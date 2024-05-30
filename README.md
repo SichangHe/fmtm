@@ -1,7 +1,7 @@
 # ForMaT Markdown
 
 A diff-friendly Markdown formatter that breaks lines on
-sensible punctuations and words to fit a line width. FMTM is FMTT's cousin.
+sensible punctuations and words to fit a line width.
 
 This is more useful to use with
 Git than formatters like Prettier because the formatting is more consistent,
@@ -23,7 +23,7 @@ and trims leading spaces to a multiple of 4 for display math and HTML blocks.
 ## Installation
 
 ```sh
-cargo install fmtt
+cargo install fmtm
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ Like FMTT,
 FMTM formats its input to have lines shorter than the line width limit
 (if possible).
 It reads an input file or StdIn and prints the formatted text to StdOut.
-Like FMTT, FMTT only preserves leading spaces, not tabs.
+Like FMTT, FMTM only preserves leading spaces, not tabs.
 
 
 Usage: fmtm [OPTIONS]
