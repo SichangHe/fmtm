@@ -17,6 +17,9 @@ FMTM uses [FMTT][fmtt] to format Markdown paragraphs:
     1. sentence-connection words like `and`.
 - Limited support for abbreviations using heuristics.
 
+FMTM preserves code blocks,
+and trims leading spaces to a multiple of 4 for display math and HTML blocks.
+
 ## Installation
 
 ```sh
