@@ -48,3 +48,11 @@ t!(
     pulldown_cmark_specs_math,
     include_str!("pulldown_cmark_specs_math.md")
 );
+
+t!(
+    panicked_when_seperator_after_link,
+    r"[link]: https://example.com
+
+---
+"
+);
