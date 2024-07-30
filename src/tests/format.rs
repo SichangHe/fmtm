@@ -60,3 +60,11 @@ t!(
 - [x] Nor should a checked task list item have the first line broken by its start marker.
 "
 );
+
+t!(
+    panicked_when_seperator_after_link,
+    r"[link]: https://example.com
+
+---
+"
+);
