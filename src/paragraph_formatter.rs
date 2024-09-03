@@ -14,14 +14,19 @@ pub struct FmttParagraph {
 
 impl Write for FmttParagraph {
     fn write_str(&mut self, s: &str) -> std::fmt::Result {
-        let is_hard_break = matches!(
-            s, r"\
-"
-        );
-        self.buffer.push_str(s);
-        if is_hard_break {
-            self.hard_break_points.push(self.buffer.len());
-        }
+        trace!(s, "FmttParagraph::write_str");
+        match s {
+            r"\
+" => {
+                self.buffer.push_str(s);
+                self.hard_break_points.push(self.buffer.len());
+            }
+            // NOTE: We use the null byte for a space character that
+            // should not be used as a break point.
+            "[ ] " => self.buffer.push_str("[ ]\0"),
+            "[x] " => self.buffer.push_str("[x]\0"),
+            _ => self.buffer.push_str(s),
+        };
         Ok(())
     }
 }
@@ -70,5 +75,6 @@ impl ExternalFormatter for FmttParagraph {
             }
             None => buffer,
         }
+        .replace("\0", " ")
     }
 }

@@ -48,3 +48,15 @@ t!(
     pulldown_cmark_specs_math,
     include_str!("pulldown_cmark_specs_math.md")
 );
+
+t!(
+    list_item_start_on_same_line,
+    r"
+- An unordered list item should not go beyond the line width by its start marker.
+
+1. An ordered list item should not have the first line broken by its start marker.
+
+- [ ] Nor should an empty task list item have the first line broken by its start marker.
+- [x] Nor should a checked task list item have the first line broken by its start marker.
+"
+);
