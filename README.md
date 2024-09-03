@@ -3,22 +3,20 @@
 A diff-friendly Markdown formatter that breaks lines on
 sensible punctuations and words to fit a line width.
 
-This is more useful to use with
-Git than formatters like Prettier because the formatting is more consistent,
-resulting in smaller diffs.
+This is more useful to use with Git than formatters like Prettier because
+the formatting is more consistent, resulting in smaller diffs.
 
 FMTM uses [FMTT][fmtt] to format Markdown paragraphs:
 
 - Respect line width limit.
 - Prioritize splitting on
     1. sentence ends like `.`, then
-    1. sub-sentence ends like `,`, then
-    1. sub-sentence starts like `(`, and finally
-    1. sentence-connection words like `and`.
+    1. sub-sentence ends like `,`, sub-sentence starts like `(`, and
+        sentence-connection words like `and`.
 - Limited support for abbreviations using heuristics.
 
-FMTM preserves code blocks,
-and trims leading spaces to a multiple of 4 for display math and HTML blocks.
+FMTM preserves code blocks, and trims leading spaces to a multiple of 4 for
+display math and HTML blocks.
 
 ## Installation
 
@@ -79,18 +77,16 @@ Options:
 
 ## Examples
 
-See [`src/tests/**.md`](/src/tests/)
-for test inputs and their formatted output in
-[`src/tests/snapshots/`](/src/tests/snapshots/).
+See [`src/tests/**.md`](/src/tests/) for test inputs and
+their formatted output in [`src/tests/snapshots/`](/src/tests/snapshots/).
 
 This documentation itself is also formatted with FMTM.
 
 ## Thanks
 
 A fork of @ytmimi's [`markdown-fmt`](https://github.com/ytmimi/markdown-fmt)
-powers this formatter's Markdown handling;
-it is a proof of concept for `rustfmt`.
-Thank you @ytmimi for all the hard work!
+powers this formatter's Markdown handling; it is a proof of concept for
+`rustfmt`. Thank you @ytmimi for all the hard work!
 
 ## Future work
 
@@ -101,8 +97,8 @@ Items with 🌹 are the ones I want.
 
 ## Unexposed configurations
 
-I have implemented these options in the `markdown-fmt` fork,
-but have not exposed them in the CLI.
+I have implemented these options in the `markdown-fmt` fork, but
+have not exposed them in the CLI.
 
 - [ ] Customize unordered list style.
     Currently, it is fixed to `-`, but can be `*` or preserved.
@@ -113,8 +109,8 @@ but have not exposed them in the CLI.
 
 These extensions can be implemented simply by adding `struct`s that
 implement traits in my `markdown-fmt` fork.
-I lean towards calling external CLI applications (shell out)
-for formatting these blocks of other languages.
+I lean towards calling external CLI applications (shell out) for
+formatting these blocks of other languages.
 
 - [ ] Format code blocks.
 - [ ] Format HTML blocks 🌹.
@@ -133,9 +129,8 @@ These functionalities require further tweaking `markdown-fmt` itself.
 Functionalities that alter the content would, in principle, not be implemented.
 Examples include fixing reversed links and incrementing header levels.
 
-Currently,
-it is perfectly fine to format a Markdown document with both FMTM and
-Markdownlint, similar to running isort and black,
-except the order does not matter.
+Currently, it is perfectly fine to format a Markdown document with
+both FMTM and Markdownlint, similar to running isort and black, except
+the order does not matter.
 
 [fmtt]: https://github.com/SichangHe/fmtt
