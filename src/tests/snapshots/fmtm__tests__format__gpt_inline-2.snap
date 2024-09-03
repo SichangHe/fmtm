@@ -47,8 +47,8 @@ you can have:**
 
 > "Blockquote with
 > **bold** and
-> *italic* text." -
-> Famous Quote
+> *italic* text."
+> - Famous Quote
 
 ```javascript
 // Sample code block

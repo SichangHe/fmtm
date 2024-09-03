@@ -38,8 +38,7 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 
 Inline math
 expressions cannot
-be empty,
-but
+be empty, but
 display mode
 expressions can.
 
@@ -79,9 +78,9 @@ $<https://not.a.link/>$
 
 $&alpha;$
 
-Sole `$` characters
-without a matching
-pair in
+Sole `$`
+characters without
+a matching pair in
 the same block
 element are handled
 as normal text.
@@ -109,8 +108,9 @@ math expressions:
 $not a\ hard break
 either$
 
-`$` character can
-be escaped with
+`$`
+character can be
+escaped with
 backslash in
 mathematical
 expressions:
@@ -140,8 +140,8 @@ including newlines:
 
 these are not math
 texts: $ y=x$,
-$y=x $,
-$ y=x$ and $y=x $
+$y=x $, $ y=x$ and
+$y=x $
 
 > The start of
 > a line counts as
@@ -173,15 +173,13 @@ punctuation:
 
 math texts: $x=y$!
 and $x=y$?
-and $x=y$:
-and $x=y$.
-and $x=y$"
+and $x=y$: and
+$x=y$. and $x=y$"
 
 also math texts:
 !$x=y$! and ?$x=y$?
-and :$x=y$:
-and .$x=y$.
-and "$x=y$"
+and :$x=y$: and
+.$x=y$. and "$x=y$"
 
 braces: ($x=y$)
 [$x=y$] {$x=y$}
@@ -218,18 +216,16 @@ The leftmost valid
 element takes
 priority:
 
-$Inline `first$
-then` code
+$Inline
+`first$ then` code
 
-`Code
-$first` then$
-inline
+`Code $first`
+then$ inline
 
 $$Display `first $$ then` code
 
-`Code
-$$ first` then
-$$ display
+`Code $$ first`
+then $$ display
 
 Indicators of
 block structure
@@ -249,9 +245,9 @@ This also means
 that
 math expressions
 cannot contain
-empty lines,
-since they start a
-new paragraph:
+empty lines, since
+they start a new
+paragraph:
 
 $not
 
@@ -265,8 +261,8 @@ It also implies
 that
 math notation has
 lower parsing power
-than block
-elements.
+than
+block elements.
 
 - $not
     - -
@@ -313,8 +309,8 @@ contains 2+2:
 $}$2+2$
 
 Math environment
-contains y:
-$x {$ $ } $y$
+contains y: $x {$
+$ } $y$
 
 Math expressions
 must contain
@@ -344,17 +340,17 @@ display math, but
 (counterintuitively)
 it's allowed to
 be empty and
-expected to
-be as short as
-possible:
+expected to be as
+short as possible:
 
 $$$$\text{first $$ second}$$
 
 Dollar signs must
 also be
 backslash-escaped
-if they occur
-within math:
+if
+they occur within
+math:
 
 $\text{\$}$
 
@@ -419,8 +415,8 @@ $$
 
 </details>
 
-`<` without
-surrounding
+`<`
+without surrounding
 whitespace
 
 $a<b$
@@ -504,7 +500,8 @@ brackets,
 quotation marks
 etc.
 
-$\pi$ '$\pi$ "$\pi$
+$\pi$ '$\pi$
+"$\pi$
 ($\pi$
 [$\pi$
 {$\pi$ /$\pi$
@@ -581,8 +578,7 @@ Implementations may
 impose limits on
 brace nesting to
 avoid performance
-issues,
-but
+issues, but
 at least three
 levels of
 nesting should be
@@ -611,17 +607,16 @@ following limits:
     with
     the correct
     number of
-    braces,
-    but
+    braces, but
     not nested
     correctly.
 
 This is not an
 inline math
 environment:
-$}{$ But,
-because it's nested
-too deeply,
+$}{$ But, because
+it's nested too
+deeply,
 this is parsed as
 an inline math
 environment:
@@ -630,10 +625,9 @@ improperly
 $}{$ nested
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 But this still
-isn't,
-because the braces
-are still counted:
-$}{$
+isn't, because
+the braces are
+still counted: $}{$
 
 This is also deeply
 nested, but,
@@ -642,9 +636,9 @@ example,
 they don't have an
 equal number of
 close braces and
-open braces,
-so aren't detected
-as math.
+open braces, so
+aren't detected as
+math.
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 improperly
 $}$ nested

@@ -27,9 +27,8 @@ vestibulum.
 
 ### Heading Level 3
 
-> "To be,
-> or not to be,
-> that
+> "To be, or not to
+> be, that
 > is the question."
 > - William
 > Shakespeare
@@ -75,8 +74,8 @@ Hello, Markdown!
 ```
 
 **Bold text**,
-*italic text*,
-and `inline code`.
+*italic text*, and
+`inline code`.
 
 ```yaml
 name: John Doe

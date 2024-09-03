@@ -92,8 +92,8 @@ these are not math texts: $ y=x$, $y=x $, $ y=x$ and $y=x $
 
 > The start of a line counts as whitespace $2 + $
 
-While displays can start with whitespace,
-{${ they should not allow inlines to do that $$2 + $*$
+While displays can start with whitespace, {${ they should not allow inlines to
+do that $$2 + $*$
 
 Inline math expressions do not need to be surrounded with whitespace:
 
@@ -143,8 +143,8 @@ $x + y
 $$ x + y
 > z $$
 
-This also means that math expressions cannot contain empty lines,
-since they start a new paragraph:
+This also means that math expressions cannot contain empty lines, since
+they start a new paragraph:
 
 $not
 
@@ -200,8 +200,8 @@ $$\text{first $$ second}$$
 $
 $$\text{first $$ second}$$
 
-This is also display math, but (counterintuitively)
-it's allowed to be empty and expected to be as short as possible:
+This is also display math, but (counterintuitively) it's allowed to
+be empty and expected to be as short as possible:
 
 $$$$\text{first $$ second}$$
 
@@ -339,16 +339,15 @@ As a block element, tables parsing is stronger than math.
 | ------- | ---------- |
 | a ${    | }$ b       |
 
-As a special case,
-pipes in math environments in tables are escaped with backslashes.
+As a special case, pipes in math environments in tables are escaped with
+backslashes.
 Though backslash-escaped characters in
 math environments are normally passed through verbatim to the LaTeX engine,
 escaped pipes in tables are an exception like they are in code spans.
 
 The behavior of the table parser should be as-if it found the bounds of
 the table cell in a separate pass that only looked for the strings `|` and
-`\|`,
-treating pipes as boundaries and
+`\|`, treating pipes as boundaries and
 removing the escaping backslash before passing the string to the inline parser.
 
 | first $\|$ second |
@@ -378,21 +377,20 @@ but at least three levels of nesting should be supported.
 
 Pulldown-cmark imposes the following limits:
 
-1. At 25 levels of nesting,
-    it switches from tracking nested pairs to simply counting the number of
-    braces.
+1. At 25 levels of nesting, it switches from tracking nested pairs to
+    simply counting the number of braces.
     This means the below example will spurriously recognize a math environment
     with the correct number of braces, but not nested correctly.
 
-This is not an inline math environment: $}{$ But,
-because it's nested too deeply, this is parsed as an inline math environment:
+This is not an inline math environment: $}{$ But, because
+it's nested too deeply, this is parsed as an inline math environment:
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{ improperly
-$}{$ nested }}}}}}}}}}}}}}}}}}}}}}}}}}}}}} But this still isn't,
-because the braces are still counted: $}{$
+$}{$ nested }}}}}}}}}}}}}}}}}}}}}}}}}}}}}} But this still isn't, because
+the braces are still counted: $}{$
 
 This is also deeply nested, but, unlike the first example,
-they don't have an equal number of close braces and open braces,
-so aren't detected as math.
+they don't have an equal number of close braces and open braces, so
+aren't detected as math.
 {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{ improperly $}$ nested
 ${$ example }}}}}}}}}}}}}}}}}}}}}}}}}}}}}} This, however, is detected ${}$
 
@@ -415,11 +413,11 @@ ${}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
 180 brace pairs {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
 200 brace pairs {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
 220 brace pairs {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
-240 brace pairs
-{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{$ 255 brace pairs and one unclosed brace
+240 brace pairs {}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{$ 255 brace pairs and
+one unclosed brace
 
-1. Thanks to rule 1, though,
-    deeply-nested structures won't chew through all of the ID space.
+1. Thanks to rule 1, though, deeply-nested structures won't chew through
+    all of the ID space.
     This means that the below example, even though it nests 255 levels deep,
     parses correctly anyway.
 
