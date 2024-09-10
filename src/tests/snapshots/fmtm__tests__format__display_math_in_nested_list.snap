@@ -1,0 +1,11 @@
+---
+source: src/tests/format.rs
+expression: default_formatted
+---
+- A list.
+    - And its nested list which contains a display math block:
+        $$
+        \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+        $$
+
+Followed by a paragraph.

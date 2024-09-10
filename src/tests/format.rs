@@ -60,3 +60,16 @@ t!(
 - [x] Nor should a checked task list item have the first line broken by its start marker.
 "
 );
+
+t!(
+    display_math_in_nested_list,
+    r"
+- A list.
+    - And its nested list which contains a display math block:
+        $$
+        \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+        $$
+
+Followed by a paragraph.
+"
+);
