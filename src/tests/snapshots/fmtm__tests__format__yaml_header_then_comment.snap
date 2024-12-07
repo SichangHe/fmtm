@@ -1,0 +1,9 @@
+---
+source: src/tests/format.rs
+expression: default_formatted
+---
+---
+title: dummy
+---
+
+<!-- comment -->

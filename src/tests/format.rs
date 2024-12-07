@@ -60,3 +60,13 @@ t!(
 - [x] Nor should a checked task list item have the first line broken by its start marker.
 "
 );
+
+t!(
+    yaml_header_then_comment,
+    r"---
+title: dummy
+---
+
+<!-- comment -->
+"
+);
