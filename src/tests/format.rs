@@ -68,3 +68,13 @@ t!(
 ---
 "
 );
+
+t!(
+    yaml_header_then_comment,
+    r"---
+title: dummy
+---
+
+<!-- comment -->
+"
+);
