@@ -1,6 +1,6 @@
 ---
 source: src/tests/format.rs
-expression: default_formatted
+expression: formatted_inf
 ---
 ---
 title: dummy
