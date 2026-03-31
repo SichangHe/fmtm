@@ -21,6 +21,9 @@ tracing-subscriber = { version = "0.3", default-features = false, features = [
     "smallvec",
 ] }
 
+[patch."https://github.com/SichangHe/fmtm_ytmimi_markdown_fmt.git"]
+fmtm_ytmimi_markdown_fmt = { path = "../fmtm_ytmimi_markdown_fmt" }
+
 [dev-dependencies]
 insta = "1.39"
 
