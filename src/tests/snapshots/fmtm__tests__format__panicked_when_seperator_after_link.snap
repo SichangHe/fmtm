@@ -1,0 +1,6 @@
+---
+source: src/tests/format.rs
+expression: default_formatted
+---
+---
+[link]: https://example.com
