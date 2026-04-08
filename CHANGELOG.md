@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4](https://github.com/SichangHe/fmtm/compare/v0.0.3...v0.0.4) - 2026-04-08
+
+### Fixed
+
+- *(ci)* don't use local patch
+- *(ci)* bump sccache
+- *(test)* patch markdown-fmt source and cover link-separator panic
+
+### Other
+
+- bump fmtm_ytmimi_markdown_fmt to v0.0.4
+- add yaml-header HTML spacing snapshots
+- increased whitespace after yaml header before HTML
+- add panic regression snapshots for link before separator
+- test of panicking link
+- bump versions;fix cache
+- format w/ new fmtm
+
 ## [0.0.3](https://github.com/SichangHe/fmtm/compare/v0.0.2...v0.0.3) - 2024-09-03
 
 ### Added
